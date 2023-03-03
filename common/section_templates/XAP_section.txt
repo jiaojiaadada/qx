@@ -1,0 +1,108 @@
+ship_section_template = {
+	key = "shanduola_particle_entity_section"
+	ship_size = shanduola_ship
+	fits_on_slot = mid
+	entity = "shanduola_particle_entity"
+	aux_utility_slots = 1
+}
+
+ship_section_template = {
+	key = "JLZ_ship_section"
+	ship_size = JLZ_ship
+	fits_on_slot = mid
+	entity = "black_hole_entity"
+	component_slot = {
+		name = "TITAN_01"
+		template = "invisible_titanic_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_01"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_02"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_03"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_04"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "strike_01"
+		template = "large_strike_craft"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "strike_02"
+		template = "large_strike_craft"
+		locatorname = "root"
+	}
+	aux_utility_slots = 1
+	large_utility_slots = 1
+}
+
+ship_section_template = {
+	key = "JLZ_ship_section_w"
+	ship_size = JLZ_ship
+	fits_on_slot = mid
+	entity = "black_hole_entity"
+	component_slot = {
+		name = "W_01"
+		template = "invisible_planet_killer_fixed"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "TITAN_01"
+		template = "invisible_titanic_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_01"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_02"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_03"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "large_GUN_04"
+		template = "invisible_point_defence_turret"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "strike_01"
+		template = "large_strike_craft"
+		locatorname = "root"
+	}
+	component_slot = {
+		name = "strike_02"
+		template = "large_strike_craft"
+		locatorname = "root"
+	}
+	aux_utility_slots = 1
+	large_utility_slots = 1
+}
+
+ship_section_template = {
+	key = "XLAP_space_damage_ship_section"
+	ship_size = XLAP_space_damage_ship
+	fits_on_slot = mid
+	entity = "locator_entity"
+	aux_utility_slots = 1
+}

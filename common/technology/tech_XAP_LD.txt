@@ -1,0 +1,71 @@
+#反相位
+tech_XLRE_zujian = {
+	cost = 2500000
+	area = physics
+	tier = 5
+	category = {
+		particles
+	}
+	potential = {
+		is_ai = no
+	}
+	prerequisites = {
+		tech_XL_REACTOR_4
+	}
+	weight = 1
+	is_rare = yes
+	weight_modifier = {
+		
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+#信息重构
+tech_XLAP_zaowu = {
+	cost = 1000000
+	area = physics
+	tier = 5
+	category = {
+		particles
+	}
+	potential = {
+		is_ai = no
+	}
+	prerequisites = {
+		tech_iscd_frist
+	}
+	weight = 1
+	is_rare = yes
+	weight_modifier = {
+		
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+#部件
+tech_XLAP_solar = {
+	cost = 1500000
+	area = physics
+	tier = 5
+	category = {
+		particles
+	}
+	potential = {
+		is_ai = no
+		has_ascension_perk = ap_XL_Internet
+	}
+	prerequisites = {
+		
+	}
+	weight = 1
+	is_rare = yes
+	weight_modifier = {
+		
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+        

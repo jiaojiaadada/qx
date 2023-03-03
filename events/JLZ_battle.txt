@@ -1,0 +1,135 @@
+namespace = JLZ_XL
+#创世纪
+country_event = {
+	id = JLZ_XL.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = {
+			any_owned_ship = {
+				has_component = JLZ_3
+			}
+		}
+	}
+	immediate = {
+		fromfrom = {
+			add_modifier = {
+				modifier = JLZ_3_battle
+				days = 21
+			}
+		}
+		fromfromfrom = {
+			add_modifier = {
+				modifier = JLZ_3_battle_2
+				days = 120
+			}
+		}
+		if = {
+			limit = { 
+				has_country_flag = JLZ_3_on
+			}
+			fromfromfrom = {
+				destroy_fleet = this
+			}
+		}
+	}
+}
+#福音书
+country_event = {
+	id = JLZ_XL.2
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = {
+			any_owned_ship = {
+				has_component = JLZ_2
+			}
+		}
+	}
+	immediate = {
+		fromfrom = {
+			every_owned_ship = {
+				limit = {
+					has_component = JLZ_2
+				}
+				set_variable = {
+					which = JLZ_2_chushi
+					value = trigger:has_hp
+				}
+				if = {
+					limit = { 
+						has_component = JLZ_A_1
+					}
+					set_disable_at_health = 0.1
+					set_variable = {
+						which = Ivanova_core
+						value = 8000
+					}
+				}
+			}
+			fleet_event = {
+				id = JLZ_XL.3
+				days = 7
+			}
+		}
+	}
+}
+fleet_event = {
+	id = JLZ_XL.3
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		random_owned_ship = {
+		limit = {
+			check_variable = {
+				which = JLZ_2_chushi
+				value > 0
+			}
+		}
+		set_variable = {
+			which = JLZ_2_jieshu
+			value = trigger:has_hp
+		}
+		change_variable = {
+			which = JLZ_2_yunsuan
+			value = JLZ_2_chushi
+		}
+		subtract_variable = {
+			which = JLZ_2_yunsuan
+			value = JLZ_2_jieshu
+		}
+		save_event_target_as = JLZ_FYS_TA
+	  }
+	  solar_system = {
+		every_fleet_in_system = {
+			limit = {
+				owner = {
+					is_hostile = root.owner
+				}
+			}
+			every_owned_ship = {
+				reduce_hp = event_target:JLZ_FYS_TA.JLZ_2_yunsuan
+			}
+		}
+	  }
+	  event_target:JLZ_FYS_TA = {
+		set_variable = {
+			which = JLZ_2_jieshu
+			value = 0
+		}
+		set_variable = {
+			which = JLZ_2_chushi
+			value = 0
+		}
+		set_variable = {
+			which = JLZ_2_yunsuan
+			value = 0
+		}
+		change_variable = {
+			which = Ivanova_core
+			value = 8000
+		}
+		set_disable_at_health = 0.1
+	  }
+	}
+}

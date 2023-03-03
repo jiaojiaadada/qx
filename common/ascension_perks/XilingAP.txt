@@ -1,0 +1,163 @@
+#数据总网
+ap_XL_Internet = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_XL_Internet 
+		}
+	}
+	possible = {
+		has_ascension_perk = ap_XL_god
+	}
+   modifier = {
+	country_admin_cap_add = 1000
+	all_technology_research_speed = 0.5
+   }
+	on_enabled = {
+		custom_tooltip = ap_XL_Internet_tooltip
+		hidden_effect = {
+			country_event = {
+				id = XLAP.1
+			}
+			country_event = {
+				id = XLAP.34
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+ap_XL_glory = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_XL_glory
+		}
+		has_authority = auth_xilin_mind 
+	}
+	possible = {
+		has_ascension_perk = ap_XL_Internet 
+	}
+    modifier = {
+	 starbase_shipyard_build_speed_mult = 5
+	 starbase_shipyard_build_time_mult = -0.5
+	 ships_cost_mult = -0.3
+   }
+	on_enabled = {
+		custom_tooltip = ap_XL_glory_tooltip
+		hidden_effect = {
+			event_target:weisika = {
+				planet_event = {
+					id = XLAP.31
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+ap_XL_god = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_XL_god
+		}
+	}
+	possible = {
+		num_ascension_perk_slots > 2
+	}
+    modifier = {
+		country_produces_mult = 0.15
+  }  
+	on_enabled = {
+		custom_tooltip = ap_XL_god_tooltip
+		hidden_effect = {
+			country_event = {
+				id = XLAP.12
+			}
+			country_event = {
+				id = XLAP.28
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+ap_XL_XLarbitration = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_XL_XLarbitration
+		}
+		has_ascension_perk = ap_XL_god
+		has_ascension_perk = ap_XL_Internet
+	}
+	possible = {
+		has_ascension_perk = ap_XL_Internet
+	}
+modifier = {
+	
+}
+	on_enabled = {
+		custom_tooltip = ap_XL_XLarbitration_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = DAP_power_level2
+						has_country_flag = DAP_power_level3
+					}
+				}
+				force_add_civic = civic_ap_apex
+				force_add_civic = civic_ap_lord
+			}
+		}	
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+#君临者
+ap_XL_JLZ = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_XL_JLZ
+		}
+	}
+	possible = {
+		has_ascension_perk = ap_XL_Internet
+	}
+    modifier = {
+		ship_weapon_damage = 0.4
+    }  
+	on_enabled = {
+		custom_tooltip = ap_XL_JLZ_tooltip
+		hidden_effect = {
+			export_resource_income_to_variable = {
+				resource = engineering_research
+				variable = JLZ_project_cost
+			}
+			country_event = {
+				id = XLAP.30
+			}
+			capital_scope = {
+				enable_special_project = {
+					name = "XL_JLZ_project"
+					location = this
+					owner = root
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}

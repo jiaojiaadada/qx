@@ -1,0 +1,4 @@
+
+portraits = {
+	BeeXL = {	texturefile = "gfx/models/portraits/蜜蜂.dds"  }
+}

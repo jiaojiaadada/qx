@@ -1,0 +1,15 @@
+entity = {
+	name = "huan_entity"
+	pdxmesh = "huan_mesh"
+
+	scale = 1.0
+	default_state = "idle"
+	state = {
+		name = "idle" animation = "idle"
+	}
+}
+
+animation = {
+	name = junlinzhe_huan_idle
+	file = "huan_none.anim"
+}

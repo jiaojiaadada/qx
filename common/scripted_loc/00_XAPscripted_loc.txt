@@ -1,0 +1,77 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+defined_text = { # Country/leader/pop/species scope
+	name = Getname_rongyao_shanduola_ON
+	text = {
+		trigger = {
+			has_country_flag = rongyao_shanduola_ON
+		}
+		localization_key = rongyao_shanduola_ON
+	}
+	text = {
+		trigger = {
+			NOT = { 
+				has_country_flag = rongyao_shanduola_ON
+			}
+		}
+		localization_key = rongyao_shanduola_OFF
+	}
+}
+
+defined_text = { 
+	name = Getname_panduola
+	text = {
+		trigger = {
+			has_country_flag = panduola_rongyao_ON
+		}
+		localization_key = panduola_rongyao_ON
+	}
+	text = {
+		trigger = {
+			NOT = { 
+				has_country_flag = panduola_rongyao_ON	
+			}
+		}
+		localization_key = panduola_rongyao_OFF
+	}
+}
+
+defined_text = { 
+	name = Getname_XLAP_space_damage
+	text = {
+		trigger = {
+			has_country_flag = XLAP_space_damage_1_xuke
+		}
+		localization_key = XLAP_space_damage_1_xuke_tooltip
+	}
+	text = {
+		trigger = {
+			has_country_flag = XLAP_space_damage_2_xuke
+		}
+		localization_key = XLAP_space_damage_2_xuke_tooltip
+	}
+	text = {
+		trigger = {
+			has_country_flag = XLAP_space_damage_3_xuke
+		}
+		localization_key = XLAP_space_damage_3_xuke_tooltip
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_country_flag = XLAP_space_damage_1_xuke
+				has_country_flag = XLAP_space_damage_2_xuke
+				has_country_flag = XLAP_space_damage_3_xuke
+			}
+		}
+		localization_key = XLAP_space_damage_0_xuke_tooltip
+	}
+}

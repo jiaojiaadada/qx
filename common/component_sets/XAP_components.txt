@@ -1,0 +1,53 @@
+
+component_set = {
+	key = "shanduola_A"
+	icon = "GFX_shanduola_A"
+	icon_frame = 1	
+}
+component_set = {
+	key = "shanduola_U"
+	icon = "GFX_shanduola_U"
+	icon_frame = 1	
+}
+component_set = {
+	key = "XL-RE-YES"
+	icon = "GFX_ship_part_aura_shield_dampener"
+	icon_frame = 1	
+}
+component_set = {
+	key = "JLZ_1"
+	icon = "GFX_JLZ_1"
+	icon_frame = 1	
+}
+component_set = {
+	key = "JLZ_2"
+	icon = "GFX_JLZ_2"
+	icon_frame = 1	
+}
+component_set = {
+	key = "JLZ_3"
+	icon = "GFX_JLZ_3"
+	icon_frame = 1	
+}
+component_set = {
+	key = "JLZ_P"
+	icon = "GFX_JLZ_P"
+	icon_frame = 1	
+}
+component_set = {
+	key = "JLZ_A_1"
+	icon = "GFX_JLZ_A_1"
+	icon_frame = 1	
+}
+component_set = {
+	key = "XLAP_L"
+	icon = "GFX_XLAP_L"
+	icon_frame = 1	
+}
+component_set = {
+	key = "XLAP_solar_armor"
+	icon = "GFX_XLAP_solar_armor"
+	icon_frame = 1	
+}
+
+

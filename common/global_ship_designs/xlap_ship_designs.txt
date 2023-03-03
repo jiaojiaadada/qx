@@ -1,0 +1,56 @@
+
+#尤拉西斯
+ship_design = {
+	name = "shanduola_ship"
+	ship_size = shanduola_ship
+
+	section = {
+		template = "shanduola_particle_entity_section"
+		slot = "mid"
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "shanduola_A"
+		}
+	}
+	required_component="shanduola_U"
+	required_component="shanduola_U2"
+	required_component="shanduola_U3"
+}
+#超时空打击虚拟船设计
+ship_design = {
+	name = "XLAP_space_damage_ship_1"
+	ship_size = XLAP_space_damage_ship
+	section = {
+		template = "XLAP_space_damage_ship_section"
+		slot = "mid"
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "XLAP_space_damage_1"
+		}
+	}
+}
+ship_design = {
+	name = "XLAP_space_damage_ship_2"
+	ship_size = XLAP_space_damage_ship
+	section = {
+		template = "XLAP_space_damage_ship_section"
+		slot = "mid"
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "XLAP_space_damage_2"
+		}
+	}
+}
+ship_design = {
+	name = "XLAP_space_damage_ship_3"
+	ship_size = XLAP_space_damage_ship
+	section = {
+		template = "XLAP_space_damage_ship_section"
+		slot = "mid"
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "XLAP_space_damage_3"
+		}
+	}
+}
+

@@ -1,0 +1,1946 @@
+namespace = XLAP
+
+country_event = {
+	id = XLAP.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		
+	}
+	immediate = {
+		create_country = {
+			name = XL_data_Internet
+			type = XL_data_Internet
+			flag = {
+				icon={
+					category="xilin"
+					file="xilin_empire2.dds"
+				}
+				background={
+					category="backgrounds"
+					file="00_solid.dds"
+				}
+				colors={
+					"indigo"
+					"indigo"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				save_event_target_as = XL_data_Internet
+				add_modifier = {
+					modifier = XLdata_modifier
+				}
+			}
+		}
+		establish_communications = event_target:XL_data_Internet
+	}
+}
+
+country_event = {
+	id = XLAP.2
+	title = XLAP.2
+	desc = XLAP.2.desc
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		room = xldatainternetroom
+		city_level = root
+		graphical_culture = root
+	}
+    trigger = {
+		OR = {
+			from = {
+				is_country_type = XL_data_Internet
+			}
+			has_country_flag = luojiyongflag
+		}
+	}
+    immediate = {
+		set_country_flag = luojiyongflag
+	}
+	option = {
+		name = 分配当前可用计算力
+		custom_tooltip = XLAP.2.a.tooltip
+		allow = {
+			fail_text = {
+				text = fenpei_cooldown
+				NOT = {
+					has_country_flag = fenpei_cooldown
+				}
+			}
+		}
+		hidden_effect = {
+			set_timed_country_flag = {
+				flag = fenpei_cooldown
+				days = 1800
+			}
+			country_event = {
+				id = XLAP.3
+			}
+			country_event = {
+				id = XLAP.2
+			}
+		}
+	}
+	option = {
+		name = XLAP.2.d
+		trigger = {
+			has_ascension_perk = ap_XL_XLarbitration
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAPA.1
+			}
+		}
+	}
+	option = {
+		name = XLAP.2.b
+		hidden_effect = {
+			country_event = {
+				id = XLAP.5
+			}
+		}
+	} 
+	option = {
+		name = XLAP.2.c
+		trigger = {
+			has_ascension_perk = ap_XL_glory
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.23
+			}
+		}
+	}
+	option = {
+		name = 退出
+		hidden_effect = {
+			remove_country_flag = luojiyongflag
+		}
+	} 
+}
+
+country_event = {
+	id = XLAP.3
+	hide_window =yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				any_owned_planet = {
+					has_modifier = m_gaia_body
+				}
+			}
+			change_variable = {
+				which = XL_data_C
+				value = 100
+			}
+		}
+		every_owned_planet = {
+			set_timed_planet_flag = {
+				flag = XAP_C_planet
+				days = 15
+			}
+			every_owned_pop = {
+				limit = { has_trait = trait_magic_machine }
+				set_pop_flag = XL_DATA_FLAG_POP
+			}
+			planet_event = {
+				id = XLAP.4
+			}
+		}
+		while = {
+			limit = {
+				any_owned_planet = {
+					has_planet_flag = XAP_C_planet
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = XAP_C_planet
+				}
+				remove_planet_flag = XAP_C_planet
+				owner = {
+					change_variable = {
+						which = XL_data_C
+						value = 10
+					}
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = XLAP.4
+	hide_window = yes
+    is_triggered_only = yes
+	immediate = {	
+		while = {
+			limit = {
+				any_owned_pop = {
+					has_pop_flag = XL_DATA_FLAG_POP
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					has_pop_flag = XL_DATA_FLAG_POP
+				}
+				remove_pop_flag = XL_DATA_FLAG_POP
+			}
+			owner = {
+				change_variable = {
+					which = XL_data_C
+					value = 1
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.5
+	title = XLAP.5
+	desc = XLAP.5.desc
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		room = xldatainternetroom
+		city_level = root
+		graphical_culture = root
+	}
+    trigger = {
+		
+	}
+
+	option = {
+		name = XLAP.5.a
+		hidden_effect = {
+			country_event = {
+				id = XLAP.51
+			}
+		}
+	}
+	option = {
+		name = XLAP.5.b
+		hidden_effect = {
+			country_event = {
+				id = XLAP.52
+			}
+		}
+	}
+	option = {
+		name = XLAP.5.c
+		hidden_effect = {
+			country_event = {
+				id = XLAP.53
+			}
+		}
+	}
+	option = {
+		name = XLAP.5.d
+		hidden_effect = {
+			country_event = {
+				id = XLAP.37
+			}
+		}
+	} 
+	option = {
+		name = 返回上一界面
+		hidden_effect = {
+			country_event = {
+				id = XLAP.2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.51
+	title = XLAP.51
+	desc = XLAP.51.desc
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		room = xldatainternetroom
+		city_level = root
+		graphical_culture = root
+	}
+    trigger = {
+		
+	}
+
+	option = {
+		name = XLAP.51.a
+		hidden_effect = {
+			remove_modifier = XLdataInternet_produce_1
+		}
+		add_modifier = {
+			multiplier = XL_data_C
+			modifier = XLdataInternet_produce_1
+		}
+		hidden_effect = {
+			set_variable = {
+				which = XL_data_C
+				value = 0
+			}
+		}
+	}
+	option = {
+		name = XLAP.51.b
+		hidden_effect = {
+			remove_modifier = XLdataInternet_produce_1
+		}
+		add_modifier = {
+			multiplier = XL_data_C
+			modifier = XLdataInternet_produce_2
+		}
+		hidden_effect = {
+			set_variable = {
+				which = XL_data_C
+				value = 0
+			}
+		}
+	}
+	option = {
+		name = XLAP.51.c
+		hidden_effect = {
+			remove_modifier = XLdataInternet_produce_1
+		}
+		add_modifier = {
+			multiplier = XL_data_C
+			modifier = XLdataInternet_produce_3
+		}
+		hidden_effect = {
+			set_variable = {
+				which = XL_data_C
+				value = 0
+			}
+		}
+	}
+	option = {
+		name = 返回上一界面
+		hidden_effect = {
+			country_event = {
+				id = XLAP.5
+			}
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.52
+	title = XLAP.52
+	desc = XLAP.52.desc
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		room = xldatainternetroom
+		city_level = root
+		graphical_culture = root
+	}
+    trigger = {
+		
+	}
+
+	option = {
+		name = XLAP.52.a
+			country_event = {
+				id = XLAP.6
+			}
+	}
+	option = {
+		name = XLAP.52.b
+		country_event = {
+			id = XLAP.7
+		}
+	}
+	option = {
+		name = XLAP.52.c
+		country_event = {
+			id = XLAP.8
+		}
+	}
+	option = {
+		name = 返回上一界面
+		hidden_effect = {
+			country_event = {
+				id = XLAP.5
+			}
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.53
+	title = XLAP.53
+	desc = XLAP.53.desc
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		room = xldatainternetroom
+		city_level = root
+		graphical_culture = root
+	}
+    trigger = {
+		
+	}
+
+	option = {
+		name = XLAP.53.a
+		custom_tooltip = XLAP.53.a.tooltip
+		hidden_effect = {
+			country_event = {
+				id = XLAP.9
+			}
+		}
+	}
+	option = {
+		name = XLAP.53.b
+		custom_tooltip = XLAP.53.b.tooltip
+		hidden_effect = {
+			country_event = {
+				id = XLAP.10
+			}
+		}
+	}
+	option = {
+		name = XLAP.53.c
+		custom_tooltip = XLAP.53.c.tooltip
+		hidden_effect = {
+			country_event = {
+				id = XLAP.11
+			}
+		}
+	}
+	option = {
+		name = 返回上一界面
+		hidden_effect = {
+			country_event = {
+				id = XLAP.5
+			}
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.6
+	title = XLAP.6
+	desc = XLAP.6.desc
+	is_triggered_only = yes
+	picture = GFX_relic_galaxy
+	option = {
+		name = ++
+		allow = {
+			fail_text = {
+				text = 计算力不足
+				check_variable = {
+					which = XL_data_C
+					value > 0
+				}
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C
+				value = -10
+			}
+			change_variable = {
+				which = XL_data_C_battle
+				value = 10
+			}
+			remove_modifier = XLdataInternet_battle_1 
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_1 
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.6
+			}
+		}
+	}
+	option = {
+		name = +
+		allow = {
+			fail_text = {
+				text = 计算力不足
+				check_variable = {
+					which = XL_data_C
+					value > 0
+				}
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C
+				value = -1
+			}
+			change_variable = {
+				which = XL_data_C_battle
+				value = 1
+			}
+			remove_modifier = XLdataInternet_battle_1 
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_1 
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.6
+			}
+		}
+	}
+	option = {
+		name = -
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C_battle
+				value = -1
+			}
+			remove_modifier = XLdataInternet_battle_1 
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_1 
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.6
+			}
+		}
+	}
+	option = {
+		name = --
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C_battle
+				value = -10
+			}
+			remove_modifier = XLdataInternet_battle_1 
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_1 
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.6
+			}
+		}
+	}
+	option = {
+		name = 完成
+	}
+}
+
+country_event = {
+	id = XLAP.7
+	title = XLAP.6
+	desc = XLAP.6.desc
+	is_triggered_only = yes
+	picture = GFX_relic_galaxy
+	option = {
+		name = ++
+		allow = {
+			fail_text = {
+				text = 计算力不足
+				check_variable = {
+					which = XL_data_C
+					value > 0
+				}
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C
+				value = -10
+			}
+			change_variable = {
+				which = XL_data_C_battle
+				value = 10
+			}
+			remove_modifier = XLdataInternet_battle_2
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_2
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.7
+			}
+		}
+	}
+	option = {
+		name = +
+		allow = {
+			fail_text = {
+				text = 计算力不足
+				check_variable = {
+					which = XL_data_C
+					value > 0
+				}
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C
+				value = -1
+			}
+			change_variable = {
+				which = XL_data_C_battle
+				value = 1
+			}
+			remove_modifier = XLdataInternet_battle_2
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_2 
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.7
+			}
+		}
+	}
+	option = {
+		name = -
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C_battle
+				value = -1
+			}
+			remove_modifier = XLdataInternet_battle_2
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_2
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.7
+			}
+		}
+	}
+	option = {
+		name = --
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C_battle
+				value = -10
+			}
+			remove_modifier = XLdataInternet_battle_2 
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_2
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.7
+			}
+		}
+	}
+	option = {
+		name = 完成
+	}
+}
+
+country_event = {
+	id = XLAP.8
+	title = XLAP.6
+	desc = XLAP.6.desc
+	is_triggered_only = yes
+	picture = GFX_relic_galaxy
+	option = {
+		name = ++
+		allow = {
+			fail_text = {
+				text = 计算力不足
+				check_variable = {
+					which = XL_data_C
+					value > 0
+				}
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C
+				value = -10
+			}
+			change_variable = {
+				which = XL_data_C_battle
+				value = 10
+			}
+			remove_modifier = XLdataInternet_battle_3
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_3
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.8
+			}
+		}
+	}
+	option = {
+		name = +
+		allow = {
+			fail_text = {
+				text = 计算力不足
+				check_variable = {
+					which = XL_data_C
+					value > 0
+				}
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C
+				value = -1
+			}
+			change_variable = {
+				which = XL_data_C_battle
+				value = 1
+			}
+			remove_modifier = XLdataInternet_battle_3
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_3 
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.8
+			}
+		}
+	}
+	option = {
+		name = -
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C_battle
+				value = -1
+			}
+			remove_modifier = XLdataInternet_battle_3
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_3
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.8
+			}
+		}
+	}
+	option = {
+		name = --
+		hidden_effect = {
+			change_variable = {
+				which = XL_data_C_battle
+				value = -10
+			}
+			remove_modifier = XLdataInternet_battle_3
+		}
+		add_modifier = {
+			multiplier = XL_data_C_battle
+			modifier = XLdataInternet_battle_3
+		}
+		hidden_effect = {
+			country_event = {
+				id = XLAP.8
+			}
+		}
+	}
+	option = {
+		name = 完成
+	}
+}
+
+country_event = {
+	id = XLAP.9
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		check_variable = {
+			which = XL_data_C
+		    value > 25
+		}
+	}
+	immediate = {
+		change_variable = {
+			which = XL_data_C
+			value = -25
+		}
+		random_controlled_fleet = {
+			limit = {
+				is_in_combat = yes
+			}
+			save_event_target_as = XLAP_zhiyuan_fleet
+		}
+		every_controlled_fleet = {
+			limit = {
+				is_in_combat = no
+				fleet_size > 50
+			}
+			set_location = event_target:XLAP_zhiyuan_fleet
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.10
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		check_variable = {
+			which = XL_data_C
+		    value > 25
+		}
+	}
+	immediate = {
+		change_variable = {
+			which = XL_data_C
+			value = -25
+		}
+		every_controlled_fleet = {
+			limit = {
+				is_in_combat = yes
+			}
+			solar_system = {
+				every_fleet_in_system = {
+					limit = {
+						controller = {
+							is_hostile = root
+						}
+					}
+					every_owned_ship = {
+						reduce_hp_percent = 50
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.11
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		check_variable = {
+			which = XL_data_C
+		    value > 25
+		}
+	}
+	immediate = {
+		change_variable = {
+			which = XL_data_C
+			value = -25
+		}
+		every_country = {
+			limit = {
+				is_hostile = root
+			}
+			add_modifier = {
+				modifier = XL_Gpower_debuff
+				days = 1800
+			}
+		}
+	}
+}
+
+#特质
+country_event = {
+	id = XLAP.12
+	hide_window = yes
+    is_triggered_only = yes
+	immediate = {
+		every_owned_pop = {
+			limit = {
+				NOT = {
+					has_trait = trait_xilin_automatic_robot
+				}
+			}
+			modify_species = {
+				add_trait = trait_XL_god
+			}
+		}
+		every_owned_pop = {
+			limit = {
+					has_trait = trait_xilin_automatic_robot
+			}
+			modify_species = {
+				add_trait = trait_XL_machine
+			}
+		}
+	}
+}
+#珊多拉
+country_event = {
+	id = XLAP.13
+	hide_window = yes
+    is_triggered_only = yes
+	trigger = {
+		has_authority = auth_xilin_mind 
+	}
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				every_system_planet = {
+					limit = {
+						planet_size = 5
+						is_planet_class = pc_barren_cold
+					}
+					set_planet_flag = weisika_moon
+					set_name = 维斯卡
+					save_global_event_target_as = weisika
+				}
+			}
+		}
+		create_leader = {
+			class = admiral
+			skill = 666
+			set_age = 800000000
+			species = owner_main_species
+			event_leader = yes
+			traits = { 
+				trait = leader_trait_shanduola_battle
+				trait = leader_trait_shanduola_battle_dark
+			}
+		}
+		last_created_leader = {
+			set_name = shanduola
+			set_is_female = yes
+			set_leader_flag = f_shanduola
+			set_leader_flag = f_npc
+			change_leader_portrait = shanduola
+		}
+		country_event = {
+			id = XLAP.14
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.14
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+	}
+	immediate = {
+		export_resource_stockpile_to_variable = {
+	          resource = food
+			  variable = shanduola_food_upkeep
+		}
+		multiply_variable = {
+			which = shanduola_food_upkeep
+			value = 0.1
+		}
+		add_modifier = {
+			multiplier = shanduola_food_upkeep
+			modifier = shanduola_food_upkeep
+			days = 365
+		}
+		country_event = {
+			id = XLAP.14
+			days = 365
+		}
+	}
+}
+#荣耀
+country_event = {
+	id = XLAP.15
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = {
+			leader = {
+				has_trait = leader_trait_shanduola_battle
+			}
+		}
+		NOT = {
+			has_country_flag = rongyao_shanduola_cooldown
+		}
+	}
+	immediate = {
+		set_timed_country_flag = {
+			flag = rongyao_shanduola_cooldown
+			days = 720
+		}
+		create_fleet = {
+			name = 荣耀
+				effect = {
+						create_ship = {
+							name = shanduola_ship
+							design = shanduola_ship
+						} 
+					set_owner = root
+					set_location = fromfrom	
+				}
+				settings = {
+					is_boss = yes
+					can_change_leader = yes
+					can_disband = no
+					can_change_composition = yes
+					uses_naval_capacity = no
+					can_upgrade = no
+				}
+		}
+		last_created_fleet = {
+			fleet_event = {
+				id = XLAP.16
+			}
+			fleet_event = {
+				id =  XLAP.17
+				days = 720
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = XLAP.16
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		owner = {
+			has_country_flag = rongyao_shanduola_ON
+		}
+	}
+	immediate = {
+		solar_system = {
+			every_fleet_in_system = {
+				limit = {
+					NOT = {
+						is_owned_by = from
+					}
+				}
+				set_owner = from
+			}
+			every_system_planet = {
+				limit = {
+					NOT = {
+						is_owned_by = from
+					}
+				}
+				set_owner = from
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = XLAP.17
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		delete_fleet = {
+			target = this
+			destroy_template = yes
+		}
+	}
+}
+#死者苏生
+country_event = {
+	id = XLAP.18
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		fromfrom = {
+			is_ship_size = shanduola_ship
+		}
+	}
+
+	immediate = {
+		fromfrom = {
+			save_event_target_as = XAP_shanduola_fuzhichuan
+			fleet = {
+				create_ship = {
+					name = 尤拉西斯皇权
+					design = event_target:XAP_shanduola_fuzhichuan
+				}
+			}
+		}
+	}
+}
+#潘多拉之耀
+country_event = {
+	id = XLAP.19
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		fromfrom = {
+			leader = {
+				has_trait = leader_trait_panduola
+			}
+     	}
+		has_country_flag = panduola_rongyao_ON	
+	}
+	immediate = {
+		fromfrom = {
+			add_modifier = {
+				modifier = panduola_battle_rongyao
+				days = 300
+			}
+		}
+	}
+}
+#伊凡诺娃秩序之核
+country_event = {
+	id = XLAP.20
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_owned_ship = {
+			change_variable = {
+				which = Ivanova_core
+				value = 800
+			}
+			set_disable_at_health = 0.1
+		}
+	}
+}
+
+ship_event = {
+	id = XLAP.21
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		check_variable = {
+			which = Ivanova_core
+			value > 0
+		}
+	}
+	immediate = {
+		if = {
+			limit = { 
+				check_variable = {
+					which = Ivanova_core
+					value > 1
+				} 
+			}
+			change_variable = {
+				which = Ivanova_core
+				value = -1
+			}
+			set_disabled = no
+			repair_ship = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = Ivanova_core
+					value = 1
+				} 
+			 }
+			 change_variable = {
+				which = Ivanova_core
+				value = -1
+			}
+			set_disabled = no
+			repair_ship = yes
+			set_disable_at_health = -1
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.22
+	title = XLAP.22
+	desc = XLAP.22.desc
+	is_triggered_only = yes
+	picture = GFX_shipyardweisika
+	immediate = {
+		random_owned_fleet = {
+			limit = {
+				is_designable = yes
+			}
+			random_owned_ship = {
+				limit = {
+					is_designable = yes
+				}
+				save_event_target_as = weisika_design1
+			}
+		}
+		random_owned_fleet = {
+			limit = {
+				is_designable = yes
+			}
+			random_owned_ship = {
+				limit = {
+					is_designable = yes
+				}
+				save_event_target_as = weisika_design2
+			}
+		}
+		random_owned_fleet = {
+			limit = {
+				is_designable = yes
+			}
+			random_owned_ship = {
+				limit = {
+					is_designable = yes
+				}
+				save_event_target_as = weisika_design3
+			}
+		}
+	}
+	option = {
+		name = weisika_design1
+		hidden_effect = {
+			create_fleet = {
+				name = 维斯卡军团
+				effect = {
+					while = {
+						count = 50
+						create_ship = {
+							name = 维斯卡军团舰
+							design = event_target:weisika_design1
+							graphical_culture = fallen_machine_empire_01
+						} 
+					}
+					set_owner = root
+					set_location = root.capital_scope
+				}
+				settings = {
+					is_boss = no
+					can_change_leader = yes
+					can_disband = yes
+					can_change_composition = yes
+					uses_naval_capacity = no
+					can_upgrade = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = weisika_design2
+		hidden_effect = {
+			create_fleet = {
+				name = 维斯卡军团
+				effect = {
+					while = {
+						count = 50
+						create_ship = {
+							name = 维斯卡军团舰
+							design = event_target:weisika_design2
+							graphical_culture = fallen_machine_empire_01
+						} 
+					}
+					set_owner = root
+					set_location = root.capital_scope
+				}
+				settings = {
+					is_boss = no
+					can_change_leader = yes
+					can_disband = yes
+					can_change_composition = yes
+					uses_naval_capacity = no
+					can_upgrade = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = weisika_design3
+		hidden_effect = {
+			create_fleet = {
+				name = 维斯卡军团
+				effect = {
+					while = {
+						count = 50
+						create_ship = {
+							name = 维斯卡军团舰
+							design = event_target:weisika_design3
+							graphical_culture = fallen_machine_empire_01
+						} 
+					}
+					set_owner = root
+					set_location = root.capital_scope
+				}
+				settings = {
+					is_boss = no
+					can_change_leader = yes
+					can_disband = yes
+					can_change_composition = yes
+					uses_naval_capacity = no
+					can_upgrade = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = 换一批
+		hidden_effect = {
+			country_event = {
+				id = XLAP.22
+			}
+		}
+	}
+	option = {
+		name = 退出
+	}
+}
+#荣耀菜单
+country_event = {
+	id = XLAP.23
+	title = XLAP.23
+	desc = XLAP.23.desc
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		room = xldatainternetroom
+		city_level = root
+		graphical_culture = root
+	}
+	option = {
+		name = 尤拉西斯皇权-夺灵者
+		custom_tooltip = XLAP.23.a
+		hidden_effect = {
+			if = {
+				limit = { 
+					NOT = {
+						has_country_flag = rongyao_shanduola_ON
+					}
+				}
+				set_country_flag = rongyao_shanduola_ON
+			}
+			else_if = {
+				limit = {
+					has_country_flag = rongyao_shanduola_ON
+				 }
+				 remove_country_flag = rongyao_shanduola_ON
+			}
+			country_event = {
+				id =  XLAP.23
+			}
+		}
+	}
+	option = {
+		name = 潘多拉之耀
+		custom_tooltip = XLAP.23.b
+		hidden_effect = {
+			if = {
+				limit = { 
+					NOT = {
+						has_country_flag = panduola_rongyao_ON	
+					}
+				}
+				set_country_flag = panduola_rongyao_ON	
+			}
+			else_if = {
+				limit = {
+					has_country_flag = panduola_rongyao_ON	
+				 }
+				 remove_country_flag = panduola_rongyao_ON	
+			}
+			country_event = {
+				id =  XLAP.23
+			}
+		}
+	}
+	option = {
+		name = 伊凡诺娃荣耀堡垒
+		custom_tooltip = XLAP.23.c
+		allow = {
+			fail_text = {
+				text = fenpei_cooldown
+				NOT = {
+					has_country_flag = disabled_rongyao_cooldown
+				}
+			}
+		}
+		hidden_effect = {
+			set_timed_country_flag = {
+				flag = disabled_rongyao_cooldown
+				days = 2400
+			}
+			country_event = {
+				id = XLAP.20
+			}
+			country_event = {
+				id =  XLAP.23
+			}
+		}
+	}
+	option = {
+		name = 退出
+	}
+}
+#首领蜂
+country_event = {
+	id = XLAP.24
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		fromfromfrom = {
+			fleet_size > 1
+		}
+		fromfrom = {
+			leader = {
+				has_trait = Bee_XL
+			}
+		}
+	}
+	immediate = {
+		fromfromfrom = {
+			random_owned_ship = {
+				save_event_target_as = mirrorXLship
+			}
+		}
+		fromfrom = {
+			while = {
+				count = 5
+				create_ship = {
+					name = 镜像舰
+					design = event_target:mirrorXLship
+					graphical_culture = fallen_machine_empire_01
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.25
+	hide_window = yes
+	is_triggered_only = yes
+    trigger = {
+		is_ai = no
+	}
+	immediate = {
+		create_leader = {
+			class = admiral
+			skill = 666
+			set_age = 800000000
+			species = owner_main_species
+			event_leader = yes
+			traits = { 
+				trait = Bee_XL
+			}
+		}
+		last_created_leader = {
+			set_name = 首领蜂
+			set_is_female = yes
+			set_leader_flag = f_aola
+			set_leader_flag = f_npc
+			change_leader_portrait = BeeXL
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.26
+	hide_window = yes
+    is_triggered_only = yes
+	trigger = {
+		from = {
+			OR = {
+				has_trait = Bee_XL
+				has_trait = leader_trait_shanduola_battle
+			}	
+		}	
+	}
+	immediate = {
+		from = {
+			save_event_target_as = fuhuo_XLAP_leader
+		}
+		clone_leader = {
+			target = event_target:fuhuo_XLAP_leader
+		}
+	}
+}
+
+#神化
+country_event = {
+	id = XLAP.27
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_ascension_perk = ap_XL_god
+	}
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				any_owned_pop = {
+					has_trait = trait_XL_god
+				}
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				NOT = {
+					has_trait = trait_XL_god
+					has_trait = trait_XL_machine
+				}
+			}
+			add_modifier = {
+				modifier = NOT_XL_UP
+			}
+		}
+	}
+}
+#加特质
+country_event = {
+	id = XLAP.28
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_authority = auth_xilin_mind 
+	}
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				has_trait = leader_trait_paopao
+			}
+			add_trait = leader_trait_sizhai
+		}
+		every_owned_leader = {
+			limit = {
+				has_trait = leader_trait_anaiye
+			}
+			add_trait = leader_trait_daimao
+		}
+		every_owned_leader = {
+			limit = {
+				has_trait = leader_trait_taweier
+			}
+			add_trait = leader_trait_guancainiang
+		}
+	}
+}
+#反相位
+country_event = {
+	id = XLAP.29
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		fromfrom = {
+			has_component = XL-RE-YES
+		}
+		has_country_resource = {
+			type = sr_time_confetti
+			amount > 0
+		}
+	}
+
+	immediate = {
+		fromfrom = {
+			save_event_target_as = XAP_fuhuo_fuzhichuan
+			fleet = {
+				create_ship = {
+					name = 位态反相
+					graphical_culture = fallen_machine_empire_01
+					design = event_target:XAP_fuhuo_fuzhichuan
+				}
+			}
+		}
+		add_resource = {
+			sr_time_confetti = -0.1
+		}
+	}
+}
+#君临者提示
+country_event = {
+	id = XLAP.30
+	title = XLAP.30
+	desc = XLAP.30.desc
+	picture = GFX_JLZ_event
+	is_triggered_only = yes
+	option = {
+		name = 为了帝国
+	}
+}
+#维斯卡星环
+planet_event = {
+	id = XLAP.31
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		change_pc = pc_weisika
+		set_planet_size = 5
+		create_starbase = {
+			owner = root.starbase.owner
+			size = orbital_ring_tier_3
+			effect = {
+				fleet = {
+					set_name = 维斯卡壁垒星环	
+				}
+				set_starbase_flag = weisika_starbase
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = XLAP.32
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_planet_class = pc_weisika
+	}
+	immediate = {
+		add_building = building_XLAP_shuniu
+		add_building = building_xilin_hatchery
+		set_name = 维斯卡壁垒星
+	}
+}
+#船坞修正
+planet_event = {
+	id = XLAP.33
+	hide_window = yes
+	is_triggered_only = yes
+    trigger = {
+		is_planet_class = pc_weisika
+	}
+	immediate = {
+		owner = {
+			change_variable = {
+				which = XAP_weisika_chuanwu_modifier_count
+				value = 1
+			}
+			remove_modifier = weisika_chuanwu
+			add_modifier = {
+				multiplier = XAP_weisika_chuanwu_modifier_count
+				modifier = weisika_chuanwu
+			}
+		}
+	}
+}
+#计算枢纽
+country_event = {
+	id = XLAP.34
+	hide_window = yes
+	is_triggered_only = yes
+    trigger = {
+		
+	}
+	immediate = {
+		every_owned_planet = {
+			limit = {
+				has_building = building_XLAP_shuniu
+			}
+			owner = {
+				change_variable = {
+					which = XL_data_C
+					value = prev.trigger:num_pops
+				}
+			}
+		}
+		country_event = {
+			id = XLAP.34
+			days = 360
+		}
+	}
+}
+#超时空打击接战事件
+country_event = {
+	id = XLAP.35
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = XLAP_space_damage_xuke_country
+		NOT = {
+			has_country_flag = XLAP_space_damage_xuke_cooldown
+		}
+	}
+	immediate = {
+		set_timed_country_flag = {
+			flag = XLAP_space_damage_xuke_cooldown
+			days = 10
+		}
+		if = {
+			limit = { 
+				has_country_flag = XLAP_space_damage_1_xuke
+			}
+				create_fleet = {
+					name = I级超时空火力
+					effect = {
+						create_ship = {
+							name = XLAP_space_damage_ship
+							design = XLAP_space_damage_ship_1
+						}
+						set_location = fromfrom
+						set_owner = root
+						every_owned_ship = {
+							set_disable_at_health = 0.1
+							change_variable = {
+								which = Ivanova_core
+								value = 50000000
+							}
+						}
+					}
+					settings = {
+						is_boss = yes
+						can_change_leader = no
+						can_disband = no
+						can_change_composition = yes
+						uses_naval_capacity = no
+						can_upgrade = no
+						}  
+				}
+				last_created_fleet = {
+					fleet_event = {
+						id = XLAP.36
+						days = 3
+					}
+				}	
+		}
+		if = {
+			limit = { 
+				has_country_flag = XLAP_space_damage_2_xuke
+			}
+				create_fleet = {
+					name = II级超时空火力
+					effect = {
+						create_ship = {
+							name = XLAP_space_damage_ship
+							design = XLAP_space_damage_ship_2
+						}
+						set_location = fromfrom
+						set_owner = root
+						every_owned_ship = {
+							set_disable_at_health = 0.1
+							change_variable = {
+								which = Ivanova_core
+								value = 50000000
+							}
+						}
+					}
+					settings = {
+						is_boss = yes
+						can_change_leader = no
+						can_disband = no
+						can_change_composition = yes
+						uses_naval_capacity = no
+						can_upgrade = no
+						} 
+				}
+				last_created_fleet = {
+					fleet_event = {
+						id = XLAP.36
+						days = 3
+					}
+				}
+		}
+		if = {
+			limit = { 
+				has_country_flag = XLAP_space_damage_3_xuke
+			}
+				create_fleet = {
+					name = III级超时空火力
+					effect = {
+						create_ship = {
+							name = XLAP_space_damage_ship
+							design = XLAP_space_damage_ship_3
+						}
+						set_location = fromfrom
+						set_owner = root
+						every_owned_ship = {
+							set_disable_at_health = 0.1
+							change_variable = {
+								which = Ivanova_core
+								value = 50000000
+							}
+						}
+					}
+					settings = {
+					is_boss = yes
+					can_change_leader = no
+					can_disband = no
+					can_change_composition = yes
+					uses_naval_capacity = no
+					can_upgrade = no
+				    } 
+				}
+				last_created_fleet = {
+					fleet_event = {
+						id = XLAP.36
+						days = 3
+					}
+				}
+		}
+	}
+}
+
+fleet_event = {
+	id = XLAP.36
+	hide_window = yes
+    is_triggered_only = yes
+	immediate = {
+		destroy_fleet = this
+	}
+}
+#超时空打击菜单界面
+country_event = {
+	id = XLAP.37
+	title = XLAP.37
+	desc = XLAP.37.desc
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		room = xldatainternetroom
+		city_level = root
+		graphical_culture = root
+	}
+	option = {
+		name = XLAP.37.a
+		trigger = {
+			has_country_flag = XLAP_space_damage_xuke_country
+			OR = {
+				has_country_flag = XLAP_space_damage_1_xuke
+				has_country_flag = XLAP_space_damage_2_xuke
+				has_country_flag = XLAP_space_damage_3_xuke	
+			}
+		}
+		hidden_effect = {
+			remove_country_flag = XLAP_space_damage_1_xuke
+			remove_country_flag = XLAP_space_damage_2_xuke
+			remove_country_flag = XLAP_space_damage_3_xuke
+			remove_country_flag = XLAP_space_damage_xuke_country
+			country_event = {
+				id = XLAP.37
+			}
+		}
+	}
+	option = {
+		name = XLAP.37.b
+		trigger = {
+			NOT = {
+				has_country_flag = XLAP_space_damage_xuke_country
+			}
+		}
+		hidden_effect = {
+			set_country_flag = XLAP_space_damage_xuke_country
+			country_event = {
+				id = XLAP.37
+			}
+			country_event = {
+				id = XLAP.38
+			}
+		}
+	}
+	option = {
+		name = XLAP.37.1
+		custom_tooltip = XLAP.37.1.tooltip
+		hidden_effect = {
+			set_country_flag = XLAP_space_damage_1_xuke
+			remove_country_flag = XLAP_space_damage_2_xuke
+			remove_country_flag = XLAP_space_damage_3_xuke
+			country_event = {
+				id = XLAP.37
+			}
+		}
+	}
+	option = {
+		name = XLAP.37.2
+		custom_tooltip = XLAP.37.2.tooltip
+		hidden_effect = {
+			set_country_flag = XLAP_space_damage_2_xuke
+			remove_country_flag = XLAP_space_damage_1_xuke
+			remove_country_flag = XLAP_space_damage_3_xuke
+			country_event = {
+				id = XLAP.37
+			}
+		}
+	}
+	option = {
+		name = XLAP.37.3
+		custom_tooltip = XLAP.37.3.tooltip
+		hidden_effect = {
+			set_country_flag = XLAP_space_damage_3_xuke
+			remove_country_flag = XLAP_space_damage_1_xuke
+			remove_country_flag = XLAP_space_damage_2_xuke
+			country_event = {
+				id = XLAP.37
+			}
+		}
+	}
+	option = {
+		name = 退出
+	}
+}
+
+country_event = {
+	id = XLAP.38
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = XLAP_space_damage_xuke_country
+		OR = {
+			has_country_flag = XLAP_space_damage_1_xuke
+			has_country_flag = XLAP_space_damage_2_xuke
+			has_country_flag = XLAP_space_damage_3_xuke
+		}
+	}
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = XLAP_space_damage_1_xuke
+			 }
+			 change_variable = {
+				which = XL_data_C
+				value = -5
+			 }
+		}
+		if = {
+			limit = {
+				has_country_flag = XLAP_space_damage_2_xuke
+			 }
+			 change_variable = {
+				which = XL_data_C
+				value = -10
+			 }
+		}
+		if = {
+			limit = {
+				has_country_flag = XLAP_space_damage_3_xuke
+			 }
+			 change_variable = {
+				which = XL_data_C
+				value = -40
+			 }
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = XL_data_C
+					value < 0
+				}
+			 }
+			 remove_country_flag = XLAP_space_damage_xuke_country
+			 country_event = {
+				id = XLAP.39
+			 }
+		}
+		country_event = {
+			id = XLAP.38
+			days = 30
+		}
+	}
+}
+
+country_event = {
+	id = XLAP.39
+	title = XLAP.39
+	desc = XLAP.39.desc
+	is_triggered_only = yes
+	picture = GFX_shipyardweisika
+	option = {
+		name = OK
+	}
+}

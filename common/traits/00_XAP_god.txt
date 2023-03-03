@@ -1,0 +1,57 @@
+trait_XL_god = {
+	icon = "gfx/interface/icons/traits/神化.dds"
+	cost = 0
+	potential_crossbreeding_chance = 0.5
+	initial = no
+	randomized = no
+	immortal_leaders = yes
+	improves_leaders = yes
+	modifier = {
+		pop_environment_tolerance = 5
+		planet_jobs_produces_mult = 5
+		planet_jobs_upkeep_mult = -0.5
+		army_health = 10
+		army_damage_mult = 10
+		pop_amenities_usage_mult = -1
+		planet_pops_upkeep_mult = -1
+		pop_demotion_time_mult = -1
+	}
+}
+
+trait_XL_machine = {
+	icon = "gfx/interface/icons/traits/自律超械.dds"
+	cost = 0
+	potential_crossbreeding_chance = 0.5
+	initial = no
+	randomized = no
+	immortal_leaders = yes
+	improves_leaders = yes
+	modifier = {
+		pop_environment_tolerance = 10
+		planet_jobs_produces_mult = 5
+		planet_jobs_upkeep_mult = 3
+		pop_amenities_usage_mult = -1
+		planet_pops_upkeep_mult = 3
+		planet_jobs_minerals_produces_mult = 1.5
+		planet_jobs_alloys_produces_mult = 1.5
+		planet_jobs_unity_produces_mult = -3
+		planet_jobs_physics_research_produces_mult = -3
+		planet_jobs_engineering_research_produces_mult = -3
+		planet_jobs_society_research_produces_mult = -3
+		pop_demotion_time_mult = -1
+	}
+	triggered_pop_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+			has_modifier = m_gaia_body
+		}		
+	}
+        planet_jobs_unity_produces_mult = 3.5
+		planet_jobs_physics_research_produces_mult = 3.5
+		planet_jobs_engineering_research_produces_mult = 3.5
+		planet_jobs_society_research_produces_mult = 3.5
+		planet_jobs_upkeep_mult = -3
+}
+}
+

@@ -1,0 +1,4 @@
+DS_C = {
+	size = titanic
+	component = weapon
+}

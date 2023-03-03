@@ -1,0 +1,33 @@
+decision_weisika_shipyard = {
+	sound = event_administrative_work
+	icon = 船坞决议
+	owned_planets_only = yes
+	enactment_time = 720
+	resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+		}
+		produces = {
+			physics_research = 1000
+		}
+	}	
+	allow = {
+	}
+	
+	potential = {
+		is_planet_class = pc_weisika
+	}
+
+	effect = {
+		custom_tooltip = 支援舰队
+		hidden_effect = {
+			starbase.owner = {
+				country_event = {
+					id = XLAP.22
+				}
+			}
+		}
+	}
+}
+
