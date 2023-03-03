@@ -1,0 +1,81 @@
+spriteTypes = {				
+	spriteType = {
+		name = "GFX_text_XL"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_XL.dds"
+	}		
+	spriteType = {
+		name = "GFX_shanduola_A"
+		textureFile = "gfx/interface/icons/ship_parts/金色星辰.dds"
+	}	
+	spriteType = {
+		name = "GFX_shanduola_U"
+		textureFile = "gfx/interface/icons/ship_parts/夺灵者.dds"
+	}	
+	spriteType = {
+		name = "GFX_JLZ_1"
+		textureFile = "gfx/interface/icons/ship_parts/启示录.dds"
+	}
+	spriteType = {
+		name = "GFX_JLZ_2"
+		textureFile = "gfx/interface/icons/ship_parts/福音书.dds"
+	}
+	spriteType = {
+		name = "GFX_JLZ_3"
+		textureFile = "gfx/interface/icons/ship_parts/创世纪.dds"
+	}
+	spriteType = {
+		name = "GFX_JLZ_P"
+		textureFile = "gfx/interface/icons/ship_parts/君临者点防御.dds"
+	}
+	spriteType = {
+		name = "GFX_JLZ_energy"
+		textureFile = "gfx/interface/icons/ship_parts/虚空能转化装置.dds"
+	}
+	spriteType = {
+		name = "GFX_JLZ_thruster"
+		textureFile = "gfx/interface/icons/ship_parts/君临者虚空引擎.dds"
+	}
+	spriteType = {
+		name = "GFX_JLZ_A_1"
+		textureFile = "gfx/interface/icons/ship_parts/晶体.dds"
+	}
+	spriteType = {
+		name = "GFX_XLAP_L"
+		textureFile = "gfx/interface/icons/ship_parts/蓝蓝炮.dds"
+	}
+	spriteType = {
+		name = "GFX_XLAP_solar_armor"
+		textureFile = "gfx/interface/icons/ship_parts/太阳能电池板装甲.dds"
+	}
+	spriteType = {
+		name = "GFX_shipyardweisika"
+		textureFile = "gfx/event_pictures/船坞.dds"
+	}		
+	spriteType = {
+		name = "GFX_JLZ_event"
+		textureFile = "gfx/event_pictures/君临者事件图.dds"
+	}
+	spriteType = {
+		name = "GFX_ap_XL_Internet"
+		textureFile = "gfx/interface/icons/ascension_perks/希灵网络.dds"
+	}
+	spriteType = {
+		name = "GFX_ap_XL_glory"
+		textureFile = "gfx/interface/icons/ascension_perks/荣耀.dds"
+	}
+	spriteType = {
+		name = "GFX_ap_XL_god"
+		textureFile = "gfx/interface/icons/ascension_perks/神化飞.dds"
+	}
+	spriteType = {
+		name = "GFX_ap_XL_XLarbitration"
+		textureFile = "gfx/interface/icons/ascension_perks/世界仲裁.dds"
+	}		
+	spriteType = {
+		name = "GFX_ap_XL_JLZ"
+		textureFile = "gfx/interface/icons/ascension_perks/君临者.dds"
+	}	
+}	
+	
+	
+	
